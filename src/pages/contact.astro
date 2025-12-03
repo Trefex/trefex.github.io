@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact | Christophe Trefois" description="Get in touch with Christophe Trefois for collaborations, speaking engagements, or consultations.">
+  <div class="container">
+    <section class="section">
+      <h1 class="section-title">Get in Touch</h1>
+      <p class="section-subtitle">
+        I'm always interested in discussing research collaborations, speaking opportunities, 
+        and innovative projects in bioinformatics and data science.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="card" style="max-width: 800px; margin: 0 auto;">
+        <h2>Contact Information</h2>
+        
+        <div class="contact-grid-simple">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="#" id="email-link" data-user="christophe.trefois" data-domain="lnds.lu"></a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🏢</div>
+            <div class="contact-details">
+              <h3>Current Position</h3>
+              <p>Head of Technology</p>
+              <p>Luxembourg National Data Service (LNDS)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Areas of Interest</h2>
+      <p class="section-subtitle">
+        I'm particularly interested in collaborations and discussions around:
+      </p>
+      
+      <div class="interests-grid">
+        <div class="interest-card">
+          <div class="interest-icon">🧬</div>
+          <h3>Systems Biology</h3>
+          <p>Computational modeling of biological systems, disease mechanisms, and metabolic networks.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="interest-icon">💾</div>
+          <h3>Data Infrastructure</h3>
+          <p>Building scalable platforms for biomedical data management, storage, and analysis.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="interest-icon">🤖</div>
+          <h3>Machine Learning</h3>
+          <p>Applying AI and ML techniques to solve complex biological and healthcare problems.</p>
+        </div>
+
+        <div class="interest-card">
+          <div class="interest-icon">🌐</div>
+          <h3>Open Science</h3>
+          <p>Promoting FAIR data principles, reproducible research, and collaborative science.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .contact-grid-simple {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
+
+  .contact-item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition);
+    align-items: flex-start;
+  }
+
+  .contact-item:hover {
+    transform: translateX(4px);
+    border-color: var(--color-primary);
+  }
+
+  .contact-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .contact-details h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    color: var(--color-primary);
+  }
+
+  .contact-details p {
+    color: var(--color-text-secondary);
+    margin: 0.25rem 0;
+  }
+
+  .contact-details a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .contact-details a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+  }
+
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
+
+  .interest-card {
+    background-color: var(--color-surface);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: all var(--transition);
+    border: 1px solid var(--color-border);
+  }
+
+  .interest-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .interest-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .interest-card h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+  }
+
+  .interest-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+</style>
+
+<script>
+  // Client-side email obfuscation to prevent spam bots
+  const emailLink = document.getElementById('email-link');
+  if (emailLink) {
+    const user = emailLink.dataset.user;
+    const domain = emailLink.dataset.domain;
+    const email = user + '@' + domain;
+    emailLink.href = 'mailto:' + email;
+    emailLink.textContent = email;
+  }
+</script>

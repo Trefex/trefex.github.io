@@ -1,0 +1,6 @@
+[tools]
+node = "latest"
+
+[env]
+# Node.js configuration
+NODE_ENV = "development"

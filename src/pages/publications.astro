@@ -1,0 +1,566 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Type definitions
+interface Publication {
+  title: string;
+  authors: string;
+  venue: string;
+  year: number;
+  doi?: string;
+  link?: string;
+  highlight?: string;
+  note?: string;
+}
+
+interface YearGroup {
+  year: number;
+  items: Publication[];
+}
+
+interface PublicationsData {
+  journal: YearGroup[];
+  conferences: YearGroup[];
+}
+
+// Publications data structure
+const publications: PublicationsData = {
+  journal: [
+    {
+      year: 2022,
+      items: [
+        {
+          title: "Interrogating the effect of enzyme kinetics on metabolism using differentiable constraint-based models",
+          authors: "St. Elmo Wilken, Mathieu Besançon, Miroslav Kratochvíl, Chilperic Armel, Foko Kuate, Christophe Trefois, Wei Gu, Oliver Ebenhöh",
+          venue: "Metabolic Engineering, Volume 74, Pages 72-82",
+          doi: "https://doi.org/10.1016/j.ymben.2022.09.002",
+          year: 2022
+        },
+        {
+          title: "COBREXA.jl: constraint-based reconstruction and exascale analysis",
+          authors: "Miroslav Kratochvíl, Laurent Heirendt, St Elmo Wilken, Taneli Pusa, Sylvain Arreckx, Alberto Noronha, Marvin van Aalst, Venkata P Satagopam, Oliver Ebenhöh, Reinhard Schneider, Christophe Trefois, Wei Gu",
+          venue: "Bioinformatics, Volume 38, Issue 4, 15 February 2022, Pages 1171–1172",
+          doi: "https://doi.org/10.1093/bioinformatics/btab782",
+          year: 2022
+        }
+      ]
+    },
+    {
+      year: 2021,
+      items: [
+        {
+          title: "Model-based assessment of mammalian cell metabolic functionalities using omics data",
+          authors: "Anne Richelle, Benjamin P. Kellman, Alexander T. Wenzel, Austin W.T. Chiang, Tyler Reagan, Jahir M. Gutierrez, Chintan Joshi, Shangzhong Li, Joanne K. Liu, Helen Masson, Jooyong Lee, Zerong Li, Laurent Heirendt, Christophe Trefois, Edwin F. Juarez, Tyler Bath, David Borland, Jill P. Mesirov, Kimberly Robasky, Nathan E. Lewis",
+          venue: "Cell Reports Methods, 3, vol:1",
+          doi: "https://doi.org/10.1016/j.crmeth.2021.100040",
+          year: 2021
+        },
+        {
+          title: "PredictProtein - Predicting Protein Structure and Function for 29 Years",
+          authors: "Michael Bernhofer, Christian Dallago, Tim Karl, Venkata Satagopam, Michael Heinzinger, Maria Littmann, Tobias Olenyi, Jiajun Qiu, Konstantin Schütze, Guy Yachdav, Haim Ashkenazy, Nir Ben-Tal, Yana Bromberg, Tatyana Goldberg, Laszlo Kajan, Sean O'Donoghue, Chris Sander, Andrea Schafferhans, Avner Schlessinger, Gerrit Vriend, Milot Mirdita, Piotr Gawron, Wei Gu, Yohan Jarosz, Christophe Trefois, Martin Steinegger, Reinhard Schneider, Burkhard Rost",
+          venue: "Nucleic Acids Research, 2021, Vol. 49",
+          doi: "https://doi.org/10.1093/nar/gkab354",
+          year: 2021
+        }
+      ]
+    },
+    {
+      year: 2020,
+      items: [
+        {
+          title: "Clustering and visualizing huge-scale cytometry datasets with GigaSOM.jl",
+          authors: "Miroslav Kratochvil, Oliver Hunewald, Laurent Heirendt, Vasco Verissimo, Jiří Vondrášek, Venkata P. Satagopam, Reinhard Schneider, Christophe Trefois, Markus Ollert",
+          venue: "GigaScience, giaa127",
+          doi: "https://doi.org/10.1093/gigascience/giaa127",
+          year: 2020
+        },
+        {
+          title: "The need for standardisation in life science research - an approach to excellence and trust",
+          authors: "Susanne Hollmann, Andreas Kremer, Špela Baebler, Christophe Trefois, Kristina Gruden, Witold R. Rudnicki, Weida Tong, Aleksandra Gruca, Erik Bongcam-Rudloff, Chris T. Evelo, Alina Nechyporenko, Marcus Frohme, David Šafránek, Babette Regierer, Domenica D'Elia",
+          venue: "F1000 Research, 9:1398",
+          doi: "https://doi.org/10.12688/f1000research.27500.1",
+          year: 2020
+        },
+        {
+          title: "Parkinson's disease-associated alterations of the gut microbiome predict disease-relevant changes in metabolic functions",
+          authors: "Baldini, F., Hertel, J., Sandt, E. et al.",
+          venue: "BMC Biol 18, 62",
+          doi: "https://doi.org/10.1186/s12915-020-00775-7",
+          year: 2020
+        }
+      ]
+    },
+    {
+      year: 2019,
+      items: [
+        {
+          title: "DAISY: A Data Information System for accountability under the General Data Protection Regulation",
+          authors: "Regina Becker, Pinar Alper, Valentin Grouès, Sandrine Munoz, Yohan Jarosz, Jacek Lebioda, Kavita Rege, Christophe Trefois, Venkata Satagopam, Reinhard Schneider",
+          venue: "GigaScience, giz140",
+          doi: "https://doi.org/10.1093/gigascience/giz140",
+          year: 2019
+        }
+      ]
+    },
+    {
+      year: 2018,
+      items: [
+        {
+          title: "ARTENOLIS: Automated Reproducibility and Testing Environment for Licensed Software",
+          authors: "Laurent Heirendt, Sylvain Arreckx, Christophe Trefois, Yohan Yarosz, Maharshi Vyas, Venkata P. Satagopam, Reinhard Schneider, Ines Thiele, Ronan M.T. Fleming",
+          venue: "arXiv preprint arXiv:1712.05236",
+          link: "https://arxiv.org/abs/1712.05236",
+          year: 2018
+        },
+        {
+          title: "Fractalis: A scalable open-source service for platform-independent interactive visual analytics of biomedical data",
+          authors: "Sascha Herzinger, Valentin Grouès, Wei Gu, Venkata Satagopam, Peter Banda, Christophe Trefois, Reinhard Schneider",
+          venue: "GigaScience, giy109",
+          doi: "https://doi.org/10.1093/gigascience/giy109",
+          year: 2018
+        }
+      ]
+    },
+    {
+      year: 2016,
+      items: [
+        {
+          title: "Characterization of Differentiated SH-SY5Y as Neuronal Screening Model Reveals Increased Oxidative Vulnerability",
+          authors: "Julia Forster, Sandra Köglsberger, Christophe Trefois, Olga Boyd, Aidos Baumuratov, Laurent Bück, Rudi Balling, Paul Antony",
+          venue: "Journal of Biomedical Screening, pp. 1-14, SAGE journals",
+          link: "http://jbx.sagepub.com/content/early/2016/01/06/1087057115625190",
+          year: 2016
+        }
+      ]
+    },
+    {
+      year: 2015,
+      items: [
+        {
+          title: "Critical transitions in chronic disease: transferring concepts from ecology to systems medicine",
+          authors: "Christophe Trefois, Paul MA Antony, Jorge Goncalves, Alexander Skupin, Rudi Balling",
+          venue: "Current Opinion in Biotechnology, 34, pp. 48-55, Elsevier",
+          year: 2015,
+          link: "http://www.sciencedirect.com/science/article/pii/S0958166914002080"
+        },
+        {
+          title: "Evaluation of Cell Line Suitability for Disease Specific Perturbation Experiments",
+          authors: "Maria Biryukov, Paul Antony, Abhimanyu Krishna, Patrick May, and Christophe Trefois",
+          venue: "Data Science, Learning by Latent Structures, and Knowledge Discovery pp 297-307, Springer",
+          year: 2015,
+          link: "https://link.springer.com/chapter/10.1007%2F978-3-662-44983-7_26"
+        }
+      ]
+    },
+    {
+      year: 2014,
+      items: [
+        {
+          title: "Systems genomics evaluation of the SH-SY5Y neuroblastoma cell line as a model for Parkinson's disease",
+          authors: "Krishna A, Biryukov M, Trefois C, Antony PM, Hussong R, Lin J, Heinäniemi M, Glusman G, Koeglsberger S, Boyd O, et al.",
+          venue: "BMC Genomics 2014, 15:1154",
+          year: 2014,
+          highlight: "Highly Accessed",
+          link: "http://www.biomedcentral.com/1471-2164/15/1154/abstract"
+        },
+        {
+          title: "Platelet mitochondrial membrane potential in Parkinson's disease",
+          authors: "Paul MA Antony, Olga Boyd, Christophe Trefois, Wim Ammerlaan, Marek Ostaszewski, Aidos S. Baumuratov, Laura Longhino, Laurent Antunes, Werner Koopman, Rudi Balling and Nico J. Diederich",
+          venue: "Annals of Clinical and Translational Neurology, Wiley",
+          year: 2014,
+          link: "http://onlinelibrary.wiley.com/doi/10.1002/acn3.151/abstract"
+        },
+        {
+          title: "Integrating Pathways of Parkinson's Disease in a Molecular Interaction Map",
+          authors: "Kazuhiro A. Fujita, Marek Ostaszewski, Yukiko Matsuoka, Samik Ghosh, Enrico Glaab, Christophe Trefois, Isaac Crespo, Thanneer M. Perumal, Wiktor Jurkowski, Paul M. A. Antony, Nico Diederich, Manuel Buttini, Akihiko Kodama, Venkata P. Satagopam, Serge Eifes, Antonio del Sol, Reinhard Schneider, Hiroaki Kitano, Rudi Balling",
+          venue: "Molecular Neurobiology, 49(1), pp. 88-102, SpringerLink",
+          year: 2014,
+          link: "http://link.springer.com/article/10.1007%2Fs12035-013-8489-4"
+        }
+      ]
+    },
+    {
+      year: 2013,
+      items: [
+        {
+          title: "Light microscopy applications in systems biology: opportunities and challenges",
+          authors: "Paul MA Antony, Christophe Trefois, Alexandar Stojanovic, Aidos S Baumuratov, Karol Kozak",
+          venue: "Cell Communication and Signaling, 11:24, BioMed Central",
+          year: 2013,
+          highlight: "Highly Accessed",
+          link: "http://www.biosignaling.com/content/11/1/24/abstract"
+        }
+      ]
+    },
+    {
+      year: 2009,
+      items: [
+        {
+          title: "Efficient Access Control for Wireless Sensor Data",
+          authors: "Alessandro Sorniotti, Refik Molva, Laurent Gomez, Christophe Trefois, Annett Laube, Piervito Scaglioso",
+          venue: "International Journal of Wireless Information Networks, 6 (3) p. 165-174, SpringerLink",
+          year: 2009,
+          note: "Master thesis results published",
+          link: "http://www.springerlink.com/content/lkv8m8g6w3883430/"
+        }
+      ]
+    }
+  ],
+  
+  conferences: [
+    {
+      year: 2018,
+      items: [
+        {
+          title: "Provenance-enabled stewardship of human data in the GDPR era",
+          authors: "Pinar Alper, Regina Becker, Venkata Satagopam, Christophe Trefois, Valentin Groues, Jacek Lebioda, Yohan Jarosz",
+          venue: "ProvenanceWeek 2018 IPAW, London, July 9-10 2018",
+          link: "https://link.springer.com/chapter/10.1007%2F978-3-319-98379-0_33",
+          year: 2018
+        },
+        {
+          title: "Standardisation in life-science research - Making the Case for Harmonization to Improve Communication and Sharing of Data amongst Researchers?",
+          authors: "Susanne Hollmann, Babette Regierer, Markus Frohme, et al.",
+          venue: "10th International Conference ICT Innovations 2018, Web Proceedings, Ohrid, September 17-19, 2018",
+          link: "https://easychair.org/publications/preprint/1fZQ",
+          year: 2018
+        }
+      ]
+    },
+    {
+      year: 2014,
+      items: [
+        {
+          title: "Automated nuclei clump splitting by combining local concavity orientation and graph partitioning",
+          authors: "Samsi Siddarth, Trefois Christophe, Antony PMA, Skupin Alexander",
+          venue: "International Conference on Biomedical and Health Informatics, Valencia, IEEE-EMBS BHI 2014",
+          year: 2014,
+          highlight: "Selected for oral presentation",
+          link: "http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6864390"
+        }
+      ]
+    },
+    {
+      year: 2008,
+      items: [
+        {
+          title: "Encryption-Based Access Control for Building Management",
+          authors: "Laurent Gomez, Annett Laube, Vincent Ribiere, Alessandro Sorniotti, Christophe Trefois, Marco Valente, Patrick Wetterwald",
+          venue: "Fifth Annual International Conference on Mobile and Ubiquitous Systems: Computing, Networking and Services, MobiQuitous 2008",
+          link: "http://www.wasp-project.org/download/public/publications/SAP_9.pdf",
+          year: 2008
+        }
+      ]
+    },
+    {
+      year: 2007,
+      items: [
+        {
+          title: "Distributed and Component Oriented Tools for Communication Networks Using Web Services",
+          authors: "Sébastien Rumley, Christian Gaumier, Christophe Trefois",
+          venue: "6th EUROSIM Congress on Modelling and Simulation, vol. 1, EuroSim 2007, ISBN: 978-3-901608-32-2",
+          link: "http://infoscience.epfl.ch/record/149191/files/EUROSIM_rumley.pdf",
+          year: 2007
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout title="Publications | Christophe Trefois" description="Complete list of publications by Christophe Trefois - research papers, conference proceedings, and talks.">
+  <div class="container">
+    <section class="section">
+      <h1 class="section-title">Publications</h1>
+      <p class="section-subtitle">
+        Research contributions spanning systems biology, bioinformatics, data management, and computational methods.
+        Last updated: December 2025
+      </p>
+
+      <div class="publication-stats">
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Publications</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">Citations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Years Active</div>
+        </div>
+      </div>
+
+      <div class="publication-links-section">
+        <h3>Find me on:</h3>
+        <div class="academic-links">
+          <a href="https://scholar.google.com/citations?user=EBCy7v0AAAAJ&hl=en" target="_blank" class="academic-link">Google Scholar</a>
+          <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=Trefois+C" target="_blank" class="academic-link">PubMed</a>
+          <a href="https://orcid.org/0000-0002-8991-6810" target="_blank" class="academic-link">ORCID</a>
+          <a href="https://www.researchgate.net/profile/Christophe_Trefois/" target="_blank" class="academic-link">ResearchGate</a>
+          <a href="http://www.researcherid.com/rid/H-1985-2014" target="_blank" class="academic-link">ResearcherID</a>
+          <a href="http://orbilu.uni.lu/browse?type=authorulg&rpp=20&value=Trefois%2C+Christophe+21098" target="_blank" class="academic-link">ORBIlu</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Journal Papers</h2>
+      
+      {publications.journal.map(yearGroup => (
+        <div class="year-section">
+          <h3 class="year-header">{yearGroup.year}</h3>
+          
+          {yearGroup.items.map(pub => (
+            <div class="publication">
+              <h4 class="publication-title">{pub.title}</h4>
+              <p class="publication-authors">{pub.authors}</p>
+              <p class="publication-venue">{pub.venue}, {pub.year}</p>
+              {pub.highlight && <span class="highlight-badge">{pub.highlight}</span>}
+              {pub.note && <p class="publication-note">{pub.note}</p>}
+              <div class="publication-links">
+                {pub.doi && <a href={pub.doi} target="_blank" rel="noopener noreferrer">DOI</a>}
+                {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer">PDF</a>}
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Conference Proceedings & Papers</h2>
+      
+      {publications.conferences.map(yearGroup => (
+        <div class="year-section">
+          <h3 class="year-header">{yearGroup.year}</h3>
+          
+          {yearGroup.items.map(pub => (
+            <div class="publication">
+              <h4 class="publication-title">{pub.title}</h4>
+              <p class="publication-authors">{pub.authors}</p>
+              <p class="publication-venue">{pub.venue}</p>
+              {pub.highlight && <span class="highlight-badge">{pub.highlight}</span>}
+              <div class="publication-links">
+                {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer">Link</a>}
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Selected Talks & Presentations</h2>
+      
+      <div class="talks-grid">
+        <div class="talk-card">
+          <div class="talk-year">2021</div>
+          <h4>COBREXA.jl: COnstraint-Based Reconstruction and EXa-scale Analysis</h4>
+          <p>JuliaCon 2021, Virtual, July 28-30</p>
+        </div>
+
+        <div class="talk-card">
+          <div class="talk-year">2018</div>
+          <h4>FAIR human data under the GDPR</h4>
+          <p>4th ELIXIR All Hands meeting, Berlin, June 4-7 2018</p>
+        </div>
+
+        <div class="talk-card">
+          <div class="talk-year">2016</div>
+          <h4>IT enabled Innovation: A need for speed !(?)</h4>
+          <p>Paperjam 10x6, Luxembourg, November 16 2016</p>
+          <a href="http://paperjam.lu/videos/christophe-trefois-push-constantly-limit" target="_blank">[Watch Video]</a>
+        </div>
+
+        <div class="talk-card">
+          <div class="talk-year">2015</div>
+          <h4>Advancing Prompt Data Analytics Through Exploring the Readability & Interactivity of Information</h4>
+          <p>Big Data Analytics in Pharma Conference, Brussels, September 29 - October 1, 2015</p>
+        </div>
+
+        <div class="talk-card">
+          <div class="talk-year">2013</div>
+          <h4>The Parkinson's Disease Map: a framework for integration, curation and exploration</h4>
+          <p>Redox on the rise - Redox Biology Symposium, Kaiserslautern, April 11-12, 2013</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-box">
+        <h3>Interested in Collaboration?</h3>
+        <p>I'm always open to discussing research collaborations, speaking opportunities, and innovative projects.</p>
+        <a href="/contact" class="btn">Contact Me</a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .publication-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: white;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .publication-links-section {
+    background-color: var(--color-surface);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-xl) 0;
+  }
+
+  .publication-links-section h3 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .academic-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .academic-link {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: all var(--transition);
+    font-size: 0.875rem;
+  }
+
+  .academic-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  .year-section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .year-header {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-primary);
+  }
+
+  .highlight-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #fbbf24;
+    color: #92400e;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .publication-note {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  .talks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .talk-card {
+    background-color: var(--color-surface);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-accent);
+    transition: all var(--transition);
+  }
+
+  .talk-card:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .talk-year {
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .talk-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .talk-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .talk-card a {
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  .talk-card a:hover {
+    text-decoration: underline;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+
+  .cta-box h3 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-box p {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+  }
+
+  .cta-box .btn {
+    background-color: white;
+    color: var(--color-primary);
+  }
+
+  .cta-box .btn:hover {
+    background-color: var(--color-surface);
+  }
+</style>
