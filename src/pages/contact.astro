@@ -162,7 +162,7 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
   // Client-side email obfuscation to prevent spam bots
-  const emailLink = document.getElementById('email-link');
+  const emailLink = document.getElementById('email-link') as HTMLAnchorElement | null;
   if (emailLink) {
     const user = emailLink.dataset.user;
     const domain = emailLink.dataset.domain;
