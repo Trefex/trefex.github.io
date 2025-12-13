@@ -15,12 +15,12 @@ import Layout from '../layouts/Layout.astro';
       </div>
       
       <div class="grid grid-2">
-        <div>
+        <div class="flex-col">
           <div class="card">
             <h2>Professional Background</h2>
             <p>
               I am currently the <strong>Head of Technology at the Luxembourg National Data Service (LNDS)</strong> 
-              (<a href="https://lnds.lu" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">lnds.lu</a>), 
+              (<a href="https://lnds.lu" target="_blank" rel="noopener noreferrer" class="primary-link">lnds.lu</a>), 
               a position I've held since November 2022. In this role, I lead the technology team responsible for 
               building and operating the infrastructure and tools that enable secure, FAIR (Findable, Accessible, 
               Interoperable, Reusable) data sharing across Luxembourg's public and private sectors.
@@ -30,14 +30,14 @@ import Layout from '../layouts/Layout.astro';
               data cataloguing systems, pseudonymization services, and federated data access platforms. My team of data 
               engineers, software engineers, DevOps specialists, and security experts works on enabling value creation 
               from secondary use of data while ensuring data protection by design and default. We actively contribute to 
-              European initiatives including the <a href="https://health.ec.europa.eu/ehealth-digital-health-and-care/european-health-data-space_en" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">European Health Data Space</a> and support Luxembourg's participation in 
+              European initiatives including the <a href="https://health.ec.europa.eu/ehealth-digital-health-and-care/european-health-data-space_en" target="_blank" rel="noopener noreferrer" class="primary-link">European Health Data Space</a> and support Luxembourg's participation in 
               cross-border data collaboration projects.
             </p>
           </div>
 
           <div class="card">
             <h2>Research Interests</h2>
-            <ul style="padding-left: 1.5rem; line-height: 2;">
+            <ul>
               <li>Artificial Intelligence & Machine Learning Infrastructure</li>
               <li>Large-scale Data Infrastructure & Management</li>
               <li>Genomic Data Infrastructure & Federated Systems</li>
@@ -51,18 +51,18 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <div class="card">
             <h2>Education</h2>
-            <div style="margin-bottom: 1.5rem;">
-              <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">PhD in Systems Biology</h3>
+            <div class="edu-item">
+              <h3>PhD in Systems Biology</h3>
               <p><strong>University of Luxembourg, LCSB</strong></p>
-              <p style="color: var(--color-text-secondary);">2010 - 2014 | <a href="https://www.uni.lu" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">uni.lu</a></p>
+              <p class="meta">2010 - 2014 | <a href="https://www.uni.lu" target="_blank" rel="noopener noreferrer" class="primary-link">uni.lu</a></p>
               <p>Developed computational approaches for understanding disease progression and cellular responses 
               to perturbations, with focus on Parkinson's disease.</p>
             </div>
 
-            <div>
-              <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">MSc in Communication Systems (Dipl.-Ing.)</h3>
+            <div class="edu-item">
+              <h3>MSc in Communication Systems (Dipl.-Ing.)</h3>
               <p><strong>EPFL (École Polytechnique Fédérale de Lausanne)</strong></p>
-              <p style="color: var(--color-text-secondary);">2008 | <a href="https://www.epfl.ch" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">epfl.ch</a></p>
+              <p class="meta">2008 | <a href="https://www.epfl.ch" target="_blank" rel="noopener noreferrer" class="primary-link">epfl.ch</a></p>
               <p>Master thesis on "Secure Integration of Wireless Sensor Networks into Applications" 
               conducted at SAP Labs France.</p>
             </div>
@@ -76,8 +76,8 @@ import Layout from '../layouts/Layout.astro';
                 <div class="timeline-content">
                   <h4>Head of Technology</h4>
                   <p>Luxembourg National Data Service (LNDS)</p>
-                  <p style="font-size: 0.875rem; color: var(--color-text-secondary);">
-                    <a href="https://lnds.lu" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">lnds.lu</a>
+                  <p class="timeline-link">
+                    <a href="https://lnds.lu" target="_blank" rel="noopener noreferrer" class="primary-link">lnds.lu</a>
                   </p>
                 </div>
               </div>
@@ -87,8 +87,8 @@ import Layout from '../layouts/Layout.astro';
                 <div class="timeline-content">
                   <h4>Member</h4>
                   <p>National Ethics Committee (CNE)</p>
-                  <p style="font-size: 0.875rem; color: var(--color-text-secondary);">
-                    <a href="https://cne.public.lu/fr.html" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">Commission Nationale d'Éthique</a>
+                  <p class="timeline-link">
+                    <a href="https://cne.public.lu/fr.html" target="_blank" rel="noopener noreferrer" class="primary-link">Commission Nationale d'Éthique</a>
                   </p>
                 </div>
               </div>
@@ -98,9 +98,9 @@ import Layout from '../layouts/Layout.astro';
                 <div class="timeline-content">
                   <h4>Deputy Technical Coordinator</h4>
                   <p>ELIXIR Luxembourg</p>
-                  <p style="font-size: 0.875rem; color: var(--color-text-secondary);">
+                  <p class="timeline-link">
                     Luxembourg Centre for Systems Biomedicine (LCSB) | 
-                    <a href="https://elixir-luxembourg.org" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">elixir-luxembourg.org</a>
+                    <a href="https://elixir-luxembourg.org" target="_blank" rel="noopener noreferrer" class="primary-link">elixir-luxembourg.org</a>
                   </p>
                 </div>
               </div>
@@ -110,8 +110,8 @@ import Layout from '../layouts/Layout.astro';
                 <div class="timeline-content">
                   <h4>Bioinformatics Core Group</h4>
                   <p>Luxembourg Centre for Systems Biomedicine (LCSB)</p>
-                  <p style="font-size: 0.875rem; color: var(--color-text-secondary);">
-                    <a href="https://wwwen.uni.lu/lcsb" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">wwwen.uni.lu/lcsb</a>
+                  <p class="timeline-link">
+                    <a href="https://wwwen.uni.lu/lcsb" target="_blank" rel="noopener noreferrer" class="primary-link">wwwen.uni.lu/lcsb</a>
                   </p>
                 </div>
               </div>
@@ -121,7 +121,7 @@ import Layout from '../layouts/Layout.astro';
                 <div class="timeline-content">
                   <h4>Visiting Researcher</h4>
                   <p>Institute for Systems Biology (ISB), Seattle</p>
-                  <p style="font-size: 0.875rem; color: var(--color-text-secondary);">
+                  <p class="timeline-link">
                     Labs of Dr. David Galas and Dr. Adrian Ozinsky
                   </p>
                 </div>
@@ -145,7 +145,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid-3">
         <div class="card">
           <h3>Technical Leadership</h3>
-          <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--color-text-secondary);">
+          <ul>
             <li>Team management & mentoring</li>
             <li>Strategic technology planning</li>
             <li>Infrastructure architecture</li>
@@ -155,7 +155,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="card">
           <h3>Bioinformatics & Data Science</h3>
-          <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--color-text-secondary);">
+          <ul>
             <li>Systems biology modeling</li>
             <li>Genomics & transcriptomics</li>
             <li>Data integration pipelines</li>
@@ -165,7 +165,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="card">
           <h3>Software & Tools</h3>
-          <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--color-text-secondary);">
+          <ul>
             <li>Julia, Python, R</li>
             <li>HPC & cloud computing</li>
             <li>Docker, Kubernetes</li>
@@ -175,7 +175,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="card">
           <h3>Data Management</h3>
-          <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--color-text-secondary);">
+          <ul>
             <li>FAIR data principles</li>
             <li>Metadata standards</li>
             <li>Data stewardship</li>
@@ -185,7 +185,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="card">
           <h3>Compliance & Governance</h3>
-          <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--color-text-secondary);">
+          <ul>
             <li>GDPR implementation</li>
             <li>Data privacy frameworks</li>
             <li>Consent management</li>
@@ -195,7 +195,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="card">
           <h3>Community Engagement</h3>
-          <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--color-text-secondary);">
+          <ul>
             <li>Conference organization</li>
             <li>Scientific reviewing</li>
             <li>Workshop facilitation</li>

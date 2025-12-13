@@ -277,6 +277,24 @@ main {
   margin-bottom: 0;
 }
 
+.card p.key-responsibilities {
+  margin-top: 1rem;
+}
+
+.card ul {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+.card h2 + ul {
+  line-height: 2;
+}
+
+.card p + ul {
+  margin-top: 1rem;
+}
+
 /* Grid layouts */
 .grid {
   display: grid;
@@ -286,6 +304,43 @@ main {
 
 .grid-2 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.primary-link {
+  color: var(--color-primary);
+}
+
+.edu-item {
+  margin-bottom: 1.5rem;
+}
+
+.edu-item:last-child {
+  margin-bottom: 0;
+}
+
+.edu-item h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.edu-item .meta {
+  color: var(--color-text-secondary);
+}
+
+.timeline-link {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.contact-card {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .grid-3 {
