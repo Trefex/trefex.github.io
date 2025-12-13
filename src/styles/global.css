@@ -272,6 +272,11 @@ main {
   margin-bottom: var(--spacing-md);
 }
 
+.card p:last-child,
+.card ul:last-child {
+  margin-bottom: 0;
+}
+
 /* Grid layouts */
 .grid {
   display: grid;
