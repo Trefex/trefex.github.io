@@ -142,6 +142,20 @@ const buildDate = new Date().toLocaleDateString('en-US', {
     };
 
     document.getElementById('theme-toggle')?.addEventListener('click', handleToggleClick);
+
+    // Scroll progress indicator
+    const scrollProgress = document.createElement('div');
+    scrollProgress.className = 'scroll-progress';
+    document.body.appendChild(scrollProgress);
+
+    const updateScrollProgress = () => {
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (window.scrollY / windowHeight) * 100;
+      scrollProgress.style.width = scrolled + '%';
+    };
+
+    window.addEventListener('scroll', updateScrollProgress);
+    updateScrollProgress();
   </script>
 </body>
 </html>
